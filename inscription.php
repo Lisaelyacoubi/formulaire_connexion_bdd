@@ -16,16 +16,27 @@
       <div class="row">
         <div class="col-lg-8">
           <?php
-          $bdd = new PDO('mysql:host=localhost;dbname=Formulaire', 'lisaelyacoubi', 'Tsou56VWP', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+          $server = "localhost";
+          $username = "lisaelyacoubi";
+          $password = "Tsou56VWP";
+          $dbname = "Formulaire";
 
+          $conn = mysqli_connect($server, $username, $password, $dbname);
           if(isset($_POST['submit'])){
-            if(isset($_POST['email']) AND isset($_POST['password'])){
+            if(isset($_POST['email']) && isset($_POST['password']))
+            {
               $email = $_POST['email'];
               $password = $_POST['password'];
-              $requete = "INSERT INTO user (password, email) VALUES ('$password','$email')";
-              $bdd -> exec($requete);
-              header('Location: index.php');
+              $request = "INSERT INTO user (password, email) VALUES ('$password','$email')";
+              $run = mysqli_query($conn,$request) or die(mysqli_error($conn));
 
+              if($run){
+                header('Location: index.php');
+              }
+
+            }
+            else{
+              echo "tous les champs sont obligatoires";
             }
 
           }
@@ -36,12 +47,12 @@
           <form action="inscription.php" method="post">
            <div class="mb-3">
              <label for="exampleInputEmail1" class="form-label">Email address</label>
-             <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+             <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required >
              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
            </div>
            <div class="mb-3">
              <label for="exampleInputPassword1" class="form-label">Password</label>
-             <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+             <input type="password" name="password" class="form-control" id="exampleInputPassword1" required >
            </div>
            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
          </form>
