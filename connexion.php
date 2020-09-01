@@ -1,10 +1,8 @@
 <?php
 
-
   include('bdd.php');
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -14,7 +12,6 @@
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   </head>
   <body>
-
 
     <h2>Connexion</h2>
     <div class="container">
@@ -41,9 +38,7 @@
 
           }
 
-
            ?>
-
 
           <form action="connexion.php" method="post">
            <div class="mb-3">
