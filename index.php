@@ -17,10 +17,10 @@
      <div class="container">
        <div class="row">
          <div class="col-lg-6">
-           <button type="button" class="btn btn-primary">Connexion</button>
+          <a href="connexion.php"><button type="button" class="btn btn-primary">Connexion</button></a>
          </div>
          <div class="col-lg-6">
-           <button type="button" class="btn btn-dark"> <a href="inscription.php">Inscription</a></button>
+          <a href="inscription.php"><button type="button" class="btn btn-dark">Inscription</button></a>
          </div>
        </div>
      </div>
